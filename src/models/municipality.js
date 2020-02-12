@@ -22,17 +22,24 @@
 // request.send()
 
 const https = require("https");
-const url = "https://pxnet2.stat.fi/PXWeb/api/v1/fi/Kuntien_avainluvut/";
+const url = "https://pxnet2.stat.fi/PXWeb/api/v1/fi/Kuntien_avainluvut/kuntien_avainluvut_2019_viimeisin.px";
 
 https.get(url, res => {
-  res.setEncoding("utf8");
-  let body = "";
-  res.on("data", data => {
-    body += data;
-  });
-  res.on("end", () => {
-    body = JSON.parse(body);
-    console.log(body);
-  });
+    res.setEncoding("utf8");
+
+    let body = "";
+
+    let on = res.on("data", data => {
+        body += data
+    });
+
+    res.on("end", () => {
+        body = JSON.parse(body);
+
+        //body.sort(function (a,b) {
+          //  return a.text.localeCompare(b.text);
+        //});
+        console.log(body)
+    })
 });
 
