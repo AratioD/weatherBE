@@ -1,13 +1,13 @@
 {
-  "name": "weathertest",
+  "name": "weather",
   "version": "1.0.0",
-  "description": "test",
-  "main": "index.js",
+  "description": "weather application",
+  "main": "server.js",
   "scripts": {
-    "test": "test"
+    "test": "node server.js"
   },
   "keywords": [
-    "testing",
+    "demo",
     "weather"
   ],
   "author": "antti",
