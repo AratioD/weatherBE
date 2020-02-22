@@ -1,5 +1,7 @@
 FROMnode:current-slim
 
+MAINTAINER antti.heroja@gmail.com
+
 WORKDIR/usr/src/app
 COPYpackage.json.
 RUNnpminstall
