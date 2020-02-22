@@ -3,10 +3,9 @@ FROMnode:current-slim
 MAINTAINER antti.heroja@gmail.com
 
 WORKDIR/usr/src/app
-COPYpackage.json.
-RUNnpminstall
+COPY package.json.
+RUN npminstall
 
-EXPOSE8080
 CMD["npm","start"]
 
 COPY..
