@@ -4,7 +4,7 @@ MAINTAINER antti.heroja@gmail.com
 
 WORKDIR/usr/src/app
 COPY package.json.
-RUN npminstall
+RUN npm install
 
 CMD["npm","start"]
 
