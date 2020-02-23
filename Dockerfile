@@ -1,21 +1,23 @@
 # Mainteiner antti.heroja@gmail.com
 
-FROM node:10
+# Specifies where to get the base image (Node v12 in our case) and creates a new container for it
+FROM node:12
 
-# Create app directory
+# Set working directory. Paths will be relative this WORKDIR.
 WORKDIR /usr/src/app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
+# Install dependencies
 COPY package*.json ./
-
 RUN npm install
-# If you are building your code for production
-# RUN npm ci --only=production
 
-# Bundle app source
+# Copy source files from host computer to the container
 COPY . .
 
-EXPOSE 8080
-CMD [ "node", "server.js" ]
+# Build the app
+RUN npm run build
+
+# Specify port app runs on
+EXPOSE 3000
+
+# Run the app
+CMD [ "npm", "start" ]
