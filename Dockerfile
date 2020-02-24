@@ -1,23 +1,20 @@
-# Mainteiner antti.heroja@gmail.com
+# Use the official image as a parent image
+FROM node:current-slim
 
-# Specifies where to get the base image (Node v12 in our case) and creates a new container for it
-FROM node:12
-
-# Set working directory. Paths will be relative this WORKDIR.
+# Set the working directory
 WORKDIR /usr/src/app
 
-# Install dependencies
-COPY package*.json ./
+# Copy the file from your host to your current location
+COPY package.json .
+
+# Run the command inside your image filesystem
 RUN npm install
 
-# Copy source files from host computer to the container
-COPY . .
+# Inform Docker that the container is listening on the specified port at runtime.
+EXPOSE 8080
 
-# Build the app
-#RUN npm run build
-
-# Specify port app runs on
-EXPOSE 3000
-
-# Run the app
+# Run the specified command within the container.
 CMD [ "npm", "start" ]
+
+# Copy the rest of your app's source code from your host to your image filesystem.
+COPY . .
