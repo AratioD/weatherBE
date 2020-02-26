@@ -1,4 +1,4 @@
-AUTHOR--> ANTTI HEROJA antti.heroja@gmail.com
+AUTHOR--> AratioD
 
 This source code is a weather application 
 
